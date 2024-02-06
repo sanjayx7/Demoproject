@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class="container" style="margin-bottom:100px;">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Name of the Customer</th>
+                <th>Product Name</th>
+                <th>Product Price</th>
+                <th>Delivery Address</th>
+                <th>No. of Items</th>
+                <th>Ordered On</th>
+                <th>Delivery Status</th>
+                <th>Product Image</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for i in o %}
+                <tr>
+                    <td>{{ user.username }}</td>
+                    <td>{{ i.products.name }}</td>
+                    <td>{{ i.products.price }}</td>
+                    <td>{{ i.address }}</td>
+                    <td>{{ i.no_of_items }}</td>
+                    <td>{{ i.ordered_date }}</td>
+                    <td style="color: #B7CAB4;">{{ i.delivery_status }}</td>
+                    <td><img src="{{ i.products.image.url }}" height="100px" width="100px"></td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}
